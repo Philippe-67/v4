@@ -11,9 +11,15 @@ namespace v4
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+        //  builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+       //AddEntityFrameworkStores<ApplicationDbContext>()
+      //ddDefaultTokenProviders();
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
+            builder.Services.AddDbContext<v4Context>(options =>
+            options.UseSqlServer(connectionString));
+
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -47,7 +53,7 @@ namespace v4
                 pattern: "{controller=Home}/{action=Index}/{id?}");
             app.MapRazorPages();
 
-            app.Run();
+          app .Run();
         }
     }
 }

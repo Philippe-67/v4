@@ -615,7 +615,9 @@ progress {
   font-size: 0.875em;
   color: #6c757d;
 }
-
+.logo{
+    width:20px
+}
 .container,
 .container-fluid,
 .container-xxl,

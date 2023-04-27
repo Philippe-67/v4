@@ -10,8 +10,9 @@ namespace v4.Data
             : base(options)
         {
         }
-        public DbSet<v4.Models.Voiture>? Voitures { get; set; }
-        public DbSet<v4.Models.Reparation>? Reparations { get; set; }
+        public DbSet<Voiture>? Voitures { get; set; }
+        public DbSet<Reparation>? Reparations { get; set; }
+        public DbSet<v4.Models.Interventions>? Interventions { get; set; }
         
     }
 }
